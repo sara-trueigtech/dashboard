@@ -5,11 +5,11 @@ export function renderUser(users) {
     users.forEach(u => {
         const tr = document.createElement("tr");
         tr.innerHTML = `
-        <td> ${users.id} </td>
-        <td> ${users.name} </td>
-        <td> ${users.email} </td>
-        <td> <a href = "editUser.html?id=${users.id}"> Edit </td>
-        <td> <button data-id = "${users.id}"> Delete </button> </td>
+        <td> ${u.id} </td>
+        <td> ${u.name} </td>
+        <td> ${u.email} </td>
+        <td> <a href = "editUser.html?id=${u.id}"> Edit </td>
+        <td> <button data-id = "${u.id}"> Delete </button> </td>
         `;
         tbody.appendChild(tr);
     }) ;
