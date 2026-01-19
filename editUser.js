@@ -1,4 +1,5 @@
-import { api } from "./api.js";
+// import { api } from "./api.js";
+import { api } from "./apiservice.js";
 
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
@@ -7,7 +8,7 @@ const nameInput = document.getElementById("name");
 const emailInput = document.getElementById("email");
 const form = document.getElementById("editForm");
 
-(async function loadUser() {
+async function loadUser() {
     const users = await api.getUsers();
     const user = users.find(u => u.id == id);
 
@@ -18,7 +19,9 @@ const form = document.getElementById("editForm");
 
     nameInput.value = user.name;
     emailInput.value = user.email;
-})();
+};
+
+loadUser();
 
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
