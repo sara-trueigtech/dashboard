@@ -1,4 +1,4 @@
-class api {
+class Api {
   constructor() {
     this.baseUrl = "https://jsonplaceholder.typicode.com/users";
   }
@@ -14,11 +14,11 @@ class api {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),
     });
-    res.json();
+    return res.json();
   }
 
   async updateUser(id, user) {
-    const res = await fetch(`${this.baseUrl}\${id}`, {
+    const res = await fetch(`${this.baseUrl}/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),
@@ -27,11 +27,11 @@ class api {
   }
 
   async deleteUser(id) {
-    await fetch(`${this.baseUrl}\${id}`, {
+    await fetch(`${this.baseUrl}/${id}`, {
       method: "DELETE",
     });
   }
 }
 
 
-export const api = new api();
+export const api = new Api();

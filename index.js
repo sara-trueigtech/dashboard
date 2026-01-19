@@ -1,5 +1,5 @@
-import {api} from "./api";
-import {renderUser} from "./ui";
+import { api } from "./api.js";
+import { renderUser } from "./ui.js";
 
 async function loadUsers() {
     const users = await api.getUsers();
@@ -12,6 +12,7 @@ document.addEventListener("click", async (e) => {
     if(e.target.tagName === "BUTTON"){
         const id = e.target.dataset.id;
         await api.deleteUser(id);
+        alert("User deleted!")
         loadUsers();
     }
 });
